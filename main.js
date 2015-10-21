@@ -30,7 +30,7 @@ define(function (require, exports, module) {
 		umlEncoder			= require("./lib/umlEncoder"),
 		loadingImageUrl		= require.toUrl('./images/loading-gray.gif'),
 
-		plantumlService		= "http://www.plantuml.com/plantuml/png/",
+		plantumlService		= "http://192.168.99.100:32769/img/",
 		BRACKETSUML_COMMAND	= "bracketsuml.command",
 		BRACKETSUML_PREVIEW	= "bracketsuml.preview",
 		loadingImage,
@@ -163,7 +163,7 @@ define(function (require, exports, module) {
 		var encodedUrl = getEncodedUrl(),
 			filename = FileUtils.convertToNativePath(getImageFilePath());
 
-
+		log(getEncodedUrl());
 		Diagram.exec("save", encodedUrl, filename, PrefsManager.get("proxy"))
 			.done(function () {
 				log("Diagram successfully saved");
